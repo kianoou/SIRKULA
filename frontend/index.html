@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#153f35" />
+  <meta
+    name="description"
+    content="SIRKULA — Sistem Informasi Bank Sampah Digital. Kelola setoran sampah, harga per kilogram, dan saldo nasabah secara transparan."
+  />
+  <title>SIRKULA — Bank Sampah Digital</title>
+</head>
+<body>
+  <div id="app" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h3 id="modalTitle">Form</h3>
+        <button class="close" type="button" data-close-modal aria-label="Tutup">×</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

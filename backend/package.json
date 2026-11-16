@@ -1,0 +1,36 @@
+{
+  "name": "sirkula-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SIRKULA - REST API bank sampah digital",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "db:check": "node src/db/checkConnection.js",
+    "db:migrate": "node src/db/migrate.js",
+    "db:seed": "node src/db/seed.js",
+    "db:reset": "node src/db/migrate.js --fresh && node src/db/seed.js",
+    "test": "node --test --test-concurrency=1 tests/"
+  },
+  "engines": {
+    "node": ">=20.11"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "mysql2": "^3.15.3",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.4"
+  }
+}

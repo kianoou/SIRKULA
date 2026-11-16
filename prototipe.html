@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#153f35">
+<title>SIRKULA — Bank Sampah Digital</title>
+<style>
+:root{--green:#176b50;--green2:#22835f;--mint:#e8f4ed;--ink:#18332b;--muted:#718078;--line:#e5ece7;--bg:#f5f8f5;--white:#fff;--orange:#e99b3d;--red:#c95c54;--shadow:0 8px 28px rgba(24,51,43,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:flex;min-height:100vh}.sidebar{width:246px;background:#123c32;color:#eaf4ee;padding:25px 17px;display:flex;flex-direction:column;flex-shrink:0}.brand{display:flex;align-items:center;gap:11px;padding:0 10px 32px}.brand-mark{width:38px;height:38px;border-radius:12px;background:#d9f0df;color:#176b50;display:grid;place-items:center;font-size:22px;font-weight:800}.brand strong{font-size:19px;letter-spacing:1.6px}.brand small{display:block;color:#a9c7b7;font-size:10px;letter-spacing:.7px;margin-top:-2px}.nav-label{font-size:10px;color:#8eae9d;font-weight:700;letter-spacing:1.3px;padding:0 12px;margin:4px 0 9px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#c5d9ce;text-align:left;padding:11px 12px;border-radius:10px;display:flex;gap:12px;align-items:center;font-weight:550}.nav button:hover,.nav button.active{background:#245748;color:#fff}.nav .ico{width:20px;text-align:center;font-size:16px}.sidebar-note{margin-top:auto;background:#1b4b3e;border:1px solid #326353;border-radius:13px;padding:14px;color:#c9ded2;font-size:11px}.sidebar-note b{display:block;color:#fff;font-size:12px;margin-bottom:4px}.main{min-width:0;flex:1}.topbar{height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px}.topbar .crumb{font-size:12px;color:var(--muted)}.topbar h2{margin:1px 0 0;font-size:19px}.user{display:flex;align-items:center;gap:10px}.avatar{width:35px;height:35px;border-radius:50%;background:#e4f1e8;color:var(--green);display:grid;place-items:center;font-weight:800}.user small{display:block;color:var(--muted);font-size:11px}.content{max-width:1440px;margin:auto;padding:29px 34px 45px}.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px}.page-head h1{font-size:24px;letter-spacing:-.5px;margin:0 0 4px}.page-head p{margin:0;color:var(--muted)}.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 14px;border-radius:9px;font-weight:650;display:inline-flex;align-items:center;gap:7px}.btn:hover{border-color:#a9c9b7}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn.primary:hover{background:#10563f}.btn.danger{color:var(--red);border-color:#f0d6d3}.btn.small{padding:6px 9px;font-size:12px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:19px}.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:17px 18px;box-shadow:0 2px 8px rgba(24,51,43,.025)}.stat-top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.stat-icon{width:31px;height:31px;border-radius:9px;background:var(--mint);display:grid;place-items:center;font-size:15px}.stat strong{display:block;font-size:25px;letter-spacing:-.7px;margin:10px 0 1px}.stat small{color:var(--muted);font-size:11px}.grid-two{display:grid;grid-template-columns:1.4fr 1fr;gap:17px;margin-bottom:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:13px;padding:19px;min-width:0}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}.panel-head h3{font-size:15px;margin:0}.panel-head span{font-size:11px;color:var(--muted)}.bar-row{display:grid;grid-template-columns:83px 1fr 55px;align-items:center;gap:10px;margin:13px 0;font-size:12px}.bar-track{height:9px;background:#edf2ee;border-radius:20px;overflow:hidden}.bar-fill{height:100%;background:#3c9a70;border-radius:20px}.bar-row b{text-align:right;font-size:11px}.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:17px;color:var(--muted);font-size:11px}.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:5px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;white-space:nowrap}th{text-align:left;color:#87948c;font-size:10px;letter-spacing:.6px;text-transform:uppercase;font-weight:700;padding:10px 12px;border-bottom:1px solid var(--line)}td{padding:12px;border-bottom:1px solid #edf1ee;font-size:12px}tbody tr:last-child td{border-bottom:0}.person{display:flex;align-items:center;gap:9px}.mini-avatar{width:29px;height:29px;border-radius:9px;background:#edf5ef;color:var(--green);display:grid;place-items:center;font-weight:750}.person b{font-size:12px}.person small{display:block;color:var(--muted);font-size:10px}.status{display:inline-block;padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700}.status.menunggu{background:#fff3df;color:#a56a17}.status.diverifikasi{background:#eaf0ff;color:#536eb4}.status.selesai{background:#e5f5eb;color:#27764d}.status.dibatalkan{background:#fcebea;color:#b44d48}.toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:15px}.search{min-width:210px;flex:1;position:relative}.search input{width:100%;padding:10px 12px 10px 34px;border:1px solid var(--line);border-radius:9px;background:#fff;outline:none}.search:before{content:"⌕";position:absolute;left:12px;top:5px;font-size:20px;color:#87948c}.field-select{padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.waste-card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:17px}.waste-symbol{height:45px;width:45px;background:var(--mint);border-radius:12px;display:grid;place-items:center;font-size:22px;margin-bottom:13px}.waste-card h3{font-size:14px;margin:0 0 3px}.waste-card p{color:var(--muted);font-size:11px;min-height:34px;margin:0 0 12px}.price{font-size:18px;font-weight:800;color:var(--green)}.price small{font-size:10px;color:var(--muted);font-weight:500}.card-actions{display:flex;gap:7px;margin-top:13px}.card-actions .btn{flex:1;justify-content:center}.empty{text-align:center;padding:35px;color:var(--muted)}.empty b{display:block;color:var(--ink);margin-bottom:4px}.muted{color:var(--muted)}.right{text-align:right}.modal-backdrop{position:fixed;inset:0;background:rgba(12,34,27,.45);display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal-backdrop.show{display:flex}.modal{width:min(520px,100%);background:#fff;border-radius:15px;box-shadow:0 20px 70px #102d2250;max-height:90vh;overflow:auto}.modal-head{padding:19px 21px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.modal-head h3{margin:0;font-size:17px}.close{border:0;background:#f1f5f2;border-radius:8px;width:30px;height:30px;font-size:19px;color:var(--muted)}.modal-body{padding:20px 21px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.form-group{display:grid;gap:5px;margin-bottom:13px}.form-group.full{grid-column:1/-1}.form-group label{font-size:11px;font-weight:700;color:#52645a}.form-group input,.form-group select,.form-group textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px 11px;outline:none;background:#fff;color:var(--ink)}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#6aa88a;box-shadow:0 0 0 3px #e6f3eb}.form-group textarea{min-height:70px;resize:vertical}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:7px}.notice{padding:11px 13px;background:#f0f7f2;border-radius:9px;color:#426b53;font-size:11px;margin-bottom:15px}.summary-line{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:12px}.summary-line.total{font-size:15px;font-weight:800;color:var(--green);border:0}.toast{position:fixed;right:22px;bottom:22px;background:#183f32;color:#fff;padding:12px 17px;border-radius:10px;box-shadow:var(--shadow);z-index:20;opacity:0;transform:translateY(10px);transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}.footer-note{font-size:10px;color:#89968e;text-align:center;margin-top:25px}.mobile-menu{display:none}
+
+/* SIRKULA refresh: botanical green, warm ivory, and citrus accents */
+:root{--green:#167653;--green2:#23966b;--mint:#e9f5ed;--ink:#19392f;--muted:#73857b;--line:#e4ece5;--bg:#f4f7f1;--white:#fff;--orange:#efad4d;--red:#c95c54;--shadow:0 12px 32px rgba(25,57,47,.09)}
+body{background:radial-gradient(circle at 92% 0%,#eaf4e8 0,transparent 27rem),var(--bg)}
+.sidebar{background:linear-gradient(165deg,#173f35 0%,#102e29 100%);box-shadow:8px 0 30px rgba(18,51,42,.08)}
+.brand-mark{background:linear-gradient(145deg,#dcf7a7,#bde7a0);color:#1a684a;box-shadow:0 5px 16px #0c201d55}
+.nav button{border:1px solid transparent;transition:background .18s,border-color .18s,transform .18s}
+.nav button:hover{background:#ffffff12;transform:translateX(2px)}
+.nav button.active{background:linear-gradient(90deg,#2a7658,#245a49);border-color:#4c8b6b;box-shadow:inset 3px 0 #c9f28e}
+.topbar{background:rgba(255,255,255,.9);backdrop-filter:blur(14px);box-shadow:0 4px 18px rgba(25,57,47,.035)}
+.content{padding-top:32px}
+.page-head h1{font-size:26px;letter-spacing:-.8px}
+.page-head p{font-size:13px}
+.btn{border-radius:11px;transition:transform .16s,box-shadow .16s,border-color .16s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 5px 13px rgba(25,57,47,.08)}
+.btn.primary{background:linear-gradient(135deg,#21865f,#126749);border-color:#167653;box-shadow:0 5px 14px rgba(22,118,83,.15)}
+.btn.primary:hover{background:linear-gradient(135deg,#29966b,#176e50)}
+.stat,.panel,.waste-card{border-radius:17px;box-shadow:var(--shadow);border-color:#e6ede6}
+.stat{position:relative;overflow:hidden;padding:19px}
+.stat:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-33px;bottom:-48px;background:#e9f5ed}
+.stat-icon{background:#eaf5e9;color:#27794f;width:36px;height:36px;border-radius:12px;position:relative;z-index:1}
+.stat strong{position:relative;z-index:1}
+.panel{padding:21px}
+.panel-head h3{font-size:15px;letter-spacing:-.2px}
+.bar-fill{background:linear-gradient(90deg,#4ca66f,#a4cb63)}
+.waste-card{position:relative;overflow:hidden;transition:transform .18s,box-shadow .18s}
+.waste-card:hover{transform:translateY(-3px);box-shadow:0 16px 30px rgba(25,57,47,.12)}
+.waste-symbol{background:linear-gradient(145deg,#e7f5e9,#d8edcf);color:#28794f}
+.price{color:#167653}
+.status{letter-spacing:.1px}
+.modal{border-radius:19px}
+.modal-head{background:linear-gradient(100deg,#f4f8ef,#fff);position:sticky;top:0;z-index:2}
+.form-group input,.form-group select,.form-group textarea,.search input,.field-select{border-radius:10px}
+.notice{background:#eff7e9;color:#416c4d;border-left:3px solid #99c96d}
+.wa-admin{border:1px solid #d9ebdf;background:#eff8f1;color:#18764d;border-radius:10px;padding:8px 11px;font-size:11px;font-weight:750;display:flex;align-items:center;gap:7px;margin-right:5px}
+.wa-admin:hover{background:#e4f4e7}
+.wa-link{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:20px;background:#e9f7ed;color:#16784d;text-decoration:none;font-weight:750;font-size:11px}
+.wa-link:hover{background:#d9f0df}
+.wa-empty{color:#a0aaa3;font-size:11px}
+.category-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:30px;background:#edf5ed;color:#397052;font-size:10px;font-weight:750}
+.attachment-box{border:1.5px dashed #bdd5c2;border-radius:13px;padding:13px;background:#f8fbf7}
+.attachment-box input{border:0!important;padding:5px 0!important;background:transparent!important}
+.attachment-help{color:#7b8b80;font-size:10px;margin-top:4px}
+.attachment-view{display:flex;align-items:center;gap:11px;padding:11px;background:#f4f8f3;border:1px solid #e3ece2;border-radius:12px;margin:12px 0}
+.attachment-view img{width:58px;height:58px;object-fit:cover;border-radius:9px}
+.attachment-icon{width:44px;height:44px;border-radius:10px;background:#e7f1e9;display:grid;place-items:center;font-size:19px;color:#29734f}
+.attachment-view a{color:#18764d;text-decoration:none;font-weight:750;font-size:11px;overflow-wrap:anywhere}
+@media(max-width:720px){.topbar{gap:8px}.wa-admin{font-size:0;padding:8px}.wa-admin .wa-text{display:none}.page-head h1{font-size:23px}.panel{padding:15px}}
+
+@media(max-width:1000px){.sidebar{width:210px}.stats{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr)}.content{padding:24px}.topbar{padding:0 24px}}
+@media(max-width:720px){.app{display:block}.sidebar{width:100%;height:auto;padding:12px 15px;display:block}.brand{padding:0 5px 11px}.brand-mark{width:32px;height:32px}.brand strong{font-size:16px}.nav-label,.sidebar-note{display:none}.nav{display:flex;overflow:auto;gap:4px}.nav button{white-space:nowrap;padding:8px 10px;font-size:11px}.nav .ico{display:none}.topbar{height:58px;padding:0 17px}.topbar h2{font-size:15px}.user{font-size:11px}.content{padding:20px 15px 35px}.page-head{align-items:flex-start;flex-direction:column}.page-head h1{font-size:21px}.stats{gap:9px}.stat{padding:13px}.stat strong{font-size:21px}.grid-two{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.panel{padding:14px}.form-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}}
+@media(max-width:420px){.cards{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stat-top{font-size:10px}.toolbar .field-select{flex:1}.page-head .btn{width:100%;justify-content:center}}
+
+/* SIRKULA signature theme — vivid forest, citrus, and warm paper */
+:root{--green:#116b4b;--green2:#26966b;--mint:#e8f6e9;--ink:#173b30;--muted:#71847a;--line:#e2ebe2;--bg:#f5f7ef;--orange:#f3b64b;--shadow:0 14px 36px rgba(23,59,48,.09)}
+body{background:linear-gradient(135deg,#f6f8f1 0%,#eff6ed 54%,#f8f4e9 100%);background-attachment:fixed}
+.sidebar{background:radial-gradient(circle at 12% 10%,#286d51 0,transparent 18rem),linear-gradient(165deg,#153f34,#0d2c27);}
+.brand-mark{background:linear-gradient(145deg,#edffb8,#c8ed95);color:#155b40;box-shadow:0 7px 22px #091f1960}
+.topbar{border-bottom:1px solid #e9eee7}
+.page-head{margin-bottom:20px}
+.page-head h1{font-size:27px;letter-spacing:-1px}
+.btn{border-radius:12px}
+.btn.primary{background:linear-gradient(125deg,#239669,#106545);box-shadow:0 7px 17px rgba(17,107,75,.2)}
+.stat,.panel,.waste-card{border-radius:19px;border-color:#e5ece3;box-shadow:var(--shadow)}
+.stat{padding:20px 19px}
+.stat:after{background:linear-gradient(145deg,#edf8df,#e5f3e9)}
+.panel{padding:22px}
+.waste-card{padding:19px}
+.stat-icon,.waste-symbol{background:linear-gradient(145deg,#e6f6e8,#d9edc9);color:#21734e}
+.waste-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(23,59,48,.14)}
+.bar-fill{background:linear-gradient(90deg,#26966b,#a5cc62)}
+.welcome-banner{position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 29px;margin:0 0 19px;border-radius:22px;background:linear-gradient(112deg,#133e34 0%,#176b4c 56%,#34865b 100%);color:#fff;box-shadow:0 16px 32px rgba(18,73,51,.18)}
+.welcome-banner:before,.welcome-banner:after{content:"";position:absolute;border-radius:50%;z-index:-1;pointer-events:none}
+.welcome-banner:before{width:260px;height:260px;right:110px;top:-170px;background:#ffffff12}
+.welcome-banner:after{width:190px;height:190px;right:-65px;bottom:-115px;border:1px solid #ffffff25;box-shadow:0 0 0 25px #ffffff08,0 0 0 50px #ffffff06}
+.welcome-copy{max-width:650px}.welcome-eyebrow{display:inline-flex;align-items:center;gap:7px;padding:5px 10px;border:1px solid #ffffff34;background:#ffffff13;border-radius:30px;color:#e1f4df;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.welcome-banner h2{font-size:25px;line-height:1.2;letter-spacing:-.7px;margin:12px 0 7px}.welcome-banner p{font-size:12px;color:#d4e9db;margin:0;max-width:540px}.welcome-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.welcome-actions .btn{white-space:nowrap}.welcome-actions .btn.primary{background:#e8f6b8;color:#1b593e;border-color:#e8f6b8;box-shadow:none}.welcome-actions .btn.ghost{background:#ffffff12;color:#fff;border-color:#ffffff45}
+.category-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:8px 0 12px}
+.category-choice{min-width:0;text-align:left;display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #e2ebe2;background:#fff;border-radius:13px;color:var(--ink);transition:.18s}
+.category-choice:hover{border-color:#8dbb9b;transform:translateY(-1px)}
+.category-choice.selected{border:1.5px solid #27845d;background:linear-gradient(135deg,#eff8ed,#e5f4e6);box-shadow:0 0 0 3px #dff0df}
+.category-choice .choice-icon{width:39px;height:39px;border-radius:11px;background:#e7f4e6;display:grid;place-items:center;font-size:20px;flex-shrink:0}
+.category-choice b{display:block;font-size:12px}.category-choice small{display:block;color:#71847a;font-size:10px;margin-top:2px}
+.category-choice .choice-check{margin-left:auto;color:#188353;font-weight:900}
+.upload-zone{display:block;padding:17px;border:1.5px dashed #a8c9b0;background:linear-gradient(135deg,#f6fbf4,#f0f7ef);border-radius:15px;text-align:center;cursor:pointer;transition:.18s}
+.upload-zone:hover{border-color:#2d8b5c;background:#ebf6eb}
+.upload-zone .upload-icon{width:42px;height:42px;margin:0 auto 8px;border-radius:13px;background:#e2f1e2;color:#20764e;display:grid;place-items:center;font-size:21px}
+.upload-zone b{display:block;font-size:12px}.upload-zone small{display:block;color:#78897f;font-size:10px;margin-top:4px}
+.upload-zone input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.upload-preview{display:grid;gap:6px;margin-top:9px}.file-preview-item{display:flex;align-items:center;gap:8px;background:#f6faf5;border:1px solid #e4eee3;border-radius:9px;padding:8px 10px;font-size:11px}.file-preview-item span:last-child{margin-left:auto;color:#74867b;font-size:10px}
+.wa-admin{background:linear-gradient(135deg,#edf9ef,#e4f4e8);border-color:#cee7d3;color:#14754b;padding:9px 12px}
+.wa-admin:hover{background:#dcf1e1}
+.wa-link{white-space:nowrap}
+.category-chip{background:#edf6e9;color:#32734f}
+.attachment-view{background:#f6faf4;border-color:#e4eee2}
+.footer-note{padding-top:8px}
+@media(max-width:850px){.welcome-banner{align-items:flex-start;flex-direction:column}.welcome-actions{width:100%}}
+@media(max-width:520px){.welcome-banner{padding:21px;border-radius:17px}.welcome-banner h2{font-size:21px}.category-choice-grid{grid-template-columns:1fr 1fr}.category-choice{padding:9px;gap:7px}.category-choice .choice-icon{width:33px;height:33px}.category-choice b{font-size:11px}.welcome-actions .btn{flex:1;justify-content:center}}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+ <div class="brand"><div class="brand-mark">↻</div><div><strong>SIRKULA</strong><small>BANK SAMPAH DIGITAL</small></div></div>
+ <div class="nav-label">MENU UTAMA</div>
+ <nav class="nav" id="nav">
+  <button class="active" data-page="dashboard"><span class="ico">▦</span>Dashboard</button>
+  <button data-page="kategori"><span class="ico">♻</span>Kategori Sampah</button>
+  <button data-page="nasabah"><span class="ico">♙</span>Data Nasabah</button>
+  <button data-page="setoran"><span class="ico">＋</span>Setoran Sampah</button>
+  <button data-page="riwayat"><span class="ico">◷</span>Riwayat Transaksi</button>
+ </nav>
+ <div class="sidebar-note"><b>Mode Demonstrasi</b>Data tersimpan di browser perangkat ini melalui localStorage. Bukan transaksi keuangan sungguhan.</div>
+</aside>
+<main class="main">
+ <header class="topbar"><div><div class="crumb">SIRKULA / <span id="crumb">Dashboard</span></div><h2 id="topTitle">Dashboard</h2></div><div class="user"><button class="wa-admin" onclick="editAdminWhatsApp()" title="Atur atau ganti nomor WhatsApp pengelola"><span>◉</span><span class="wa-text" id="adminWaLabel">Atur WhatsApp</span></button><a class="wa-link" id="adminWaChat" href="#" target="_blank" rel="noopener" style="display:none">Chat</a><div class="avatar">P</div><div><b>Pengelola</b><small>Mode demo lokal</small></div></div></header>
+ <section class="content" id="view"></section>
+</main>
+</div>
+<div class="modal-backdrop" id="modal"><div class="modal"><div class="modal-head"><h3 id="modalTitle">Form</h3><button class="close" onclick="closeModal()">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const KEY='sirkula_demo_v1';
+const seed={
+ types:[
+  {id:'w1',nama:'Plastik',hargaPerKg:2500,satuan:'kg',deskripsi:'Botol plastik, gelas plastik, dan kemasan bersih.',aktif:true,icon:'♳'},
+  {id:'w2',nama:'Kardus',hargaPerKg:1800,satuan:'kg',deskripsi:'Kardus dan karton dalam kondisi kering.',aktif:true,icon:'▤'},
+  {id:'w3',nama:'Kertas',hargaPerKg:1200,satuan:'kg',deskripsi:'Kertas HVS, koran, dan majalah.',aktif:true,icon:'▧'},
+  {id:'w4',nama:'Kaleng',hargaPerKg:4500,satuan:'kg',deskripsi:'Kaleng minuman dan kemasan logam.',aktif:true,icon:'▣'}
+ ],
+ customers:[
+  {id:'c1',nama:'Ayu Lestari',jenisPengguna:'masyarakat',saldo:28500},
+  {id:'c2',nama:'Budi Santoso',jenisPengguna:'masyarakat',saldo:18000},
+  {id:'c3',nama:'Kedai Kopi Pagi',jenisPengguna:'UMKM',saldo:42000},
+  {id:'c4',nama:'Dina Collection',jenisPengguna:'UMKM',saldo:0},
+  {id:'c5',nama:'Rizky Pratama',jenisPengguna:'masyarakat',saldo:12500}
+ ],
+ deposits:[
+  {id:'S-1001',customerId:'c1',jenisSampahId:'w1',jenisSampahNama:'Plastik',beratEstimasi:10,beratAktual:10,hargaPerKg:2500,totalNilai:25000,tanggal:daysAgo(1),status:'selesai',catatan:'Botol plastik bersih',saldoCredited:true},
+  {id:'S-1002',customerId:'c2',jenisSampahId:'w2',jenisSampahNama:'Kardus',beratEstimasi:10,beratAktual:10,hargaPerKg:1800,totalNilai:18000,tanggal:daysAgo(2),status:'selesai',catatan:'Kardus kemasan',saldoCredited:true},
+  {id:'S-1003',customerId:'c3',jenisSampahId:'w4',jenisSampahNama:'Kaleng',beratEstimasi:8,beratAktual:8,hargaPerKg:4500,totalNilai:36000,tanggal:daysAgo(3),status:'selesai',catatan:'Kaleng minuman',saldoCredited:true},
+  {id:'S-1004',customerId:'c5',jenisSampahId:'w3',jenisSampahNama:'Kertas',beratEstimasi:10,beratAktual:10, hargaPerKg:1200,totalNilai:12000,tanggal:daysAgo(4),status:'selesai',catatan:'Kertas campur',saldoCredited:true},
+  {id:'S-1005',customerId:'c1',jenisSampahId:'w2',beratEstimasi:5,beratAktual:null,hargaPerKg:1800,totalNilai:0,tanggal:daysAgo(0),status:'menunggu',catatan:'Kardus bekas belanja',saldoCredited:false},
+  {id:'S-1006',customerId:'c4',jenisSampahId:'w1',beratEstimasi:12,beratAktual:11.5,hargaPerKg:2500,totalNilai:28750,tanggal:daysAgo(0),status:'diverifikasi',catatan:'Plastik kemasan UMKM',saldoCredited:false}
+ ],
+ nextId:1007,
+ whatsappPengelola:''
+};
+function daysAgo(n){let d=new Date();d.setDate(d.getDate()-n);return d.toISOString().slice(0,10)}
+let db=load();
+function load(){
+ try{
+  let x=JSON.parse(localStorage.getItem(KEY));
+  if(x&&x.types&&x.customers&&x.deposits){
+   x.whatsappPengelola=x.whatsappPengelola||'';
+   x.customers.forEach(c=>{if(c.whatsapp===undefined)c.whatsapp=''});
+   x.deposits.forEach(d=>{if(d.attachment===undefined)d.attachment=null});
+   return x;
+  }
+ }catch(e){}
+ return structuredClone(seed);
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db));return true}catch(e){console.error(e);toast('Penyimpanan browser penuh atau tidak tersedia. Kurangi lampiran atau kosongkan data browser.');return false}}
+function persistMutation(snapshot){if(save())return true;db=snapshot;return false}
+const money=n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n)||0);
+const kg=n=>new Intl.NumberFormat('id-ID',{maximumFractionDigits:2}).format(Number(n)||0)+' kg';
+const date=s=>s?new Date(s+'T00:00:00').toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'numeric'}):'-';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const customer=id=>db.customers.find(x=>x.id===id);
+const type=id=>db.types.find(x=>x.id===id);
+function normalizeWhatsApp(raw){let n=String(raw||'').replace(/\D/g,'');if(n.startsWith('00'))n=n.slice(2);if(n.startsWith('0'))n='62'+n.slice(1);else if(n.startsWith('8'))n='62'+n;return n}
+function validWhatsApp(raw){let rawText=String(raw||'').trim();if(!rawText)return true;let n=normalizeWhatsApp(rawText);return n.length>=9&&n.length<=15}
+function formatWhatsApp(raw){let n=normalizeWhatsApp(raw);return n?'+'+n:'Belum diisi'}
+function whatsAppLink(raw){let n=normalizeWhatsApp(raw);return n?'https://wa.me/'+n:''}
+function refreshAdminWhatsApp(){let el=document.getElementById('adminWaLabel'),chat=document.getElementById('adminWaChat');if(el)el.textContent=db.whatsappPengelola?formatWhatsApp(db.whatsappPengelola)+' · Ganti':'Atur WhatsApp';if(chat){chat.href=whatsAppLink(db.whatsappPengelola)||'#';chat.style.display=db.whatsappPengelola?'inline-flex':'none'}}
+function editAdminWhatsApp(){openModal('Nomor WhatsApp Pengelola',`<form onsubmit="saveAdminWhatsApp(event)"><div class="notice">Nomor ini akan tampil sebagai kontak resmi pengelola dan digunakan untuk membuka chat WhatsApp. Anda dapat menggantinya kapan saja, misalnya 081234567890 atau 6281234567890.</div><div class="form-group"><label>Nomor WhatsApp *</label><input name="whatsapp" inputmode="tel" autocomplete="tel" required placeholder="08xxxxxxxxxx" value="${esc(db.whatsappPengelola||'')}"></div><div class="modal-actions"><button type="button" class="btn" onclick="closeModal()">Batal</button><button class="btn primary">Simpan Nomor</button></div></form>`)}
+function saveAdminWhatsApp(e){e.preventDefault();let raw=new FormData(e.target).get('whatsapp');if(!validWhatsApp(raw)||!normalizeWhatsApp(raw))return toast('Masukkan nomor WhatsApp yang valid.');let previous=db.whatsappPengelola;db.whatsappPengelola=normalizeWhatsApp(raw);if(!save()){db.whatsappPengelola=previous;return}closeModal();refreshAdminWhatsApp();toast('Nomor WhatsApp pengelola diperbarui.')}
+
+const statusLabel=s=>({menunggu:'Menunggu',diverifikasi:'Diverifikasi',selesai:'Selesai',dibatalkan:'Dibatalkan'}[s]||s);
+const statusTag=s=>`<span class="status ${s}">${statusLabel(s)}</span>`;
+function categoryTag(name){let found=db.types.find(t=>t.nama===name);let icons={'Plastik':'♳','Kardus':'▤','Kertas':'▧','Kaleng':'▣'};return `<span class="category-chip">${esc(found?.icon||icons[name]||'♻')} ${esc(name||'Kategori')}</span>`}
+function attachmentMarkup(d){let files=Array.isArray(d.attachments)?d.attachments:(d.attachment?[d.attachment]:[]);if(!files.length)return '<span class="muted" style="font-size:11px">Tidak ada lampiran.</span>';return files.map(a=>{if(!a||!a.dataUrl)return '';let name=esc(a.name||'Lampiran'),url=esc(a.dataUrl),size=((Number(a.size)||0)/1024).toFixed(0);if((a.type||'').startsWith('image/'))return `<div class="attachment-view"><img src="${url}" alt="Lampiran ${name}"><div><a href="${url}" download="${name}">${name}</a><small style="display:block;color:#809087">Gambar · ${size} KB</small></div></div>`;return `<div class="attachment-view"><div class="attachment-icon">▤</div><div><a href="${url}" download="${name}">${name}</a><small style="display:block;color:#809087">Dokumen · ${size} KB</small></div></div>`}).join('')}
+
+
+function categoryPickerMarkup(selectedId){let available=db.types.filter(t=>t.aktif);return `<input type="hidden" name="type" id="selectedWasteType" value="${esc(selectedId||available[0]?.id||'')}" required><div class="category-choice-grid" id="categoryChoices">${available.map(t=>`<button type="button" class="category-choice ${t.id===(selectedId||available[0]?.id)?'selected':''}" onclick="chooseDepositType('${t.id}')" data-type-choice="${esc(t.id)}"><span class="choice-icon">${esc(t.icon||'♻')}</span><span><b>${esc(t.nama)}</b><small>${money(t.hargaPerKg)} / kg</small></span><span class="choice-check">${t.id===(selectedId||available[0]?.id)?'✓':''}</span></button>`).join('')}</div>`}
+function chooseDepositType(id){let t=type(id);if(!t||!t.aktif)return;let input=document.getElementById('selectedWasteType');if(input)input.value=id;document.querySelectorAll('[data-type-choice]').forEach(b=>{let active=b.dataset.typeChoice===id;b.classList.toggle('selected',active);let check=b.querySelector('.choice-check');if(check)check.textContent=active?'✓':''})}
+function previewDepositFiles(input){let box=document.getElementById('attachmentPreview');if(!box)return;let files=Array.from(input.files||[]);if(files.length>3){input.value='';box.innerHTML='<div class="file-preview-item">Maksimal 3 lampiran dalam satu pengajuan.</div>';return}let total=files.reduce((n,f)=>n+f.size,0);if(total>1.25*1024*1024){input.value='';box.innerHTML='<div class="file-preview-item">Total ukuran lampiran maksimal 1,25 MB.</div>';return}box.innerHTML=files.map(f=>`<div class="file-preview-item"><b>${f.type.startsWith('image/')?'▧':'▤'}</b> ${esc(f.name)} <span>${(f.size/1024).toFixed(0)} KB</span></div>`).join('')+(files.length?'<button type="button" class="btn small danger" onclick="clearSelectedFiles()">Hapus semua lampiran</button>':'')}
+function clearSelectedFiles(){let input=document.getElementById('depositAttachment'),box=document.getElementById('attachmentPreview');if(input)input.value='';if(box)box.innerHTML='';toast('Lampiran pilihan dihapus.')}
+
+let page='dashboard',query='';
+function toast(msg){let el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2400)}
+function go(p){page=p;query='';document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={dashboard:'Dashboard',kategori:'Kategori Sampah',nasabah:'Data Nasabah',setoran:'Setoran Sampah',riwayat:'Riwayat Transaksi'};document.getElementById('crumb').textContent=titles[p];document.getElementById('topTitle').textContent=titles[p];render()}
+document.getElementById('nav').addEventListener('click',e=>{let b=e.target.closest('button[data-page]');if(b)go(b.dataset.page)});
+function render(){({dashboard:renderDashboard,kategori:renderTypes,nasabah:renderCustomers,setoran:renderDeposits,riwayat:renderHistory}[page]||renderDashboard)()}
+function pageHead(title,sub,action=''){return `<div class="page-head"><div><h1>${title}</h1><p>${sub}</p></div>${action}</div>`}
+function renderDashboard(){
+ let completed=db.deposits.filter(d=>d.status==='selesai'),weight=completed.reduce((a,d)=>a+(+d.beratAktual||0),0),value=completed.reduce((a,d)=>a+(+d.totalNilai||0),0),pending=db.deposits.filter(d=>d.status==='menunggu').length;
+ let counts=db.types.map(t=>({name:t.nama,weight:completed.filter(d=>d.jenisSampahId===t.id).reduce((a,d)=>a+(+d.beratAktual||0),0)})),max=Math.max(1,...counts.map(x=>x.weight));
+ let recent=[...db.deposits].sort((a,b)=>b.tanggal.localeCompare(a.tanggal)).slice(0,5);
+ document.getElementById('view').innerHTML=pageHead('Ringkasan Bank Sampah','Pantau aktivitas dan nilai ekonomi sampah yang terkumpul.')+
+ `<section class="welcome-banner"><div class="welcome-copy"><span class="welcome-eyebrow">✦ Gerakan ekonomi sirkular</span><h2>Ubah sampah menjadi nilai.<br>Mulai dari langkah kecil.</h2><p>Kelola setoran, pantau harga, dan bangun kebiasaan daur ulang bersama komunitas SIRKULA.</p></div><div class="welcome-actions"><button class="btn primary" onclick="openDeposit()">＋ Ajukan Setoran</button><button class="btn ghost" onclick="go('kategori')">Jelajahi Kategori</button></div></section><div class="stats">
+ <div class="stat"><div class="stat-top">Total sampah terkumpul <span class="stat-icon">♻</span></div><strong>${kg(weight)}</strong><small>Akumulasi setoran selesai</small></div>
+ <div class="stat"><div class="stat-top">Jumlah nasabah <span class="stat-icon">♙</span></div><strong>${db.customers.length}</strong><small>Nasabah terdaftar</small></div>
+ <div class="stat"><div class="stat-top">Jumlah transaksi <span class="stat-icon">▤</span></div><strong>${db.deposits.length}</strong><small>${pending} menunggu verifikasi</small></div>
+ <div class="stat"><div class="stat-top">Total nilai setoran <span class="stat-icon">↗</span></div><strong style="font-size:21px">${money(value)}</strong><small>Nilai transaksi berstatus selesai</small></div></div>
+ <div class="grid-two"><div class="panel"><div class="panel-head"><h3>Komposisi Sampah</h3><span>Berdasarkan berat selesai</span></div>${counts.map(x=>`<div class="bar-row"><span>${esc(x.name)}</span><div class="bar-track"><div class="bar-fill" style="width:${x.weight/max*100}%"></div></div><b>${kg(x.weight)}</b></div>`).join('')||'<div class="empty">Belum ada data kategori.</div>'}<div class="legend"><span><i class="dot" style="background:#3c9a70"></i>Berat aktual</span></div></div>
+ <div class="panel"><div class="panel-head"><h3>Perlu Tindakan</h3><span>Ringkasan antrean</span></div><div class="summary-line"><span>Setoran menunggu verifikasi</span><b>${pending}</b></div><div class="summary-line"><span>Setoran diverifikasi</span><b>${db.deposits.filter(d=>d.status==='diverifikasi').length}</b></div><div class="summary-line"><span>Setoran selesai</span><b>${completed.length}</b></div><div style="margin-top:17px"><button class="btn primary" style="width:100%;justify-content:center" onclick="go('setoran')">Kelola Setoran →</button></div></div></div>
+ <div class="panel"><div class="panel-head"><h3>Transaksi Terbaru</h3><button class="btn small" onclick="go('riwayat')">Lihat semua →</button></div>${recent.length?`<div class="table-wrap"><table><thead><tr><th>ID Setoran</th><th>Nasabah</th><th>Kategori</th><th>Tanggal</th><th>Nilai</th><th>Status</th></tr></thead><tbody>${recent.map(d=>`<tr><td><b>${esc(d.id)}</b></td><td>${esc(customer(d.customerId)?.nama||'Nasabah dihapus')}</td><td>${categoryTag(d.jenisSampahNama||type(d.jenisSampahId)?.nama||'-')}</td><td>${date(d.tanggal)}</td><td>${money(d.totalNilai)}</td><td>${statusTag(d.status)}</td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">Belum ada transaksi.</div>'}</div><div class="footer-note">SIRKULA · Prototipe demonstrasi · Data disimpan pada browser ini · ${db.whatsappPengelola?'Kontak pengelola: '+esc(formatWhatsApp(db.whatsappPengelola)):'Nomor WhatsApp pengelola belum diatur'}</div>`;
+}
+
+function updateSearch(input){let value=input.value,position=input.selectionStart;query=value;render();let next=document.getElementById('searchInput');if(next){next.focus();try{next.setSelectionRange(position,position)}catch(e){}}}
+function toolbar(placeholder,filter=''){return `<div class="toolbar"><div class="search"><input id="searchInput" placeholder="${placeholder}" value="${esc(query)}" oninput="updateSearch(this)"></div>${filter}</div>`}
+function renderTypes(){
+ let list=db.types.filter(t=>`${t.nama} ${t.deskripsi}`.toLowerCase().includes(query.toLowerCase()));
+ document.getElementById('view').innerHTML=pageHead('Kategori Sampah','Kelola jenis sampah yang diterima dan harga beli per kilogram.','<button class="btn primary" onclick="openType()">＋ Tambah Kategori</button>')+toolbar('Cari kategori sampah...')+
+ `<div class="cards">${list.map(t=>`<div class="waste-card"><div class="waste-symbol">${t.icon||'♻'}</div><div style="margin-bottom:7px"><span class="category-chip">♻ Pilihan kategori</span></div><h3>${esc(t.nama)} ${t.aktif?'':'<span class="muted">(Nonaktif)</span>'}</h3><p>${esc(t.deskripsi||'Tidak ada deskripsi.')}</p><div class="price">${money(t.hargaPerKg)} <small>/ kg</small></div><div class="card-actions"><button class="btn small" onclick="openType('${t.id}')">Edit</button><button class="btn small danger" onclick="deleteType('${t.id}')">Hapus</button></div></div>`).join('')||'<div class="empty">Kategori tidak ditemukan.</div>'}</div>`;
+}
+function renderCustomers(){
+ let list=db.customers.filter(c=>`${c.nama} ${c.jenisPengguna}`.toLowerCase().includes(query.toLowerCase()));
+ document.getElementById('view').innerHTML=pageHead('Data Nasabah','Daftar masyarakat dan UMKM yang terdaftar di SIRKULA.','<button class="btn primary" onclick="openCustomer()">＋ Tambah Nasabah</button>')+toolbar('Cari nama nasabah...')+
+ `<div class="panel"><div class="table-wrap"><table><thead><tr><th>Nasabah</th><th>Jenis Pengguna</th><th>WhatsApp</th><th>Total Setoran</th><th>Saldo</th><th>Aksi</th></tr></thead><tbody>${list.map(c=>{let n=db.deposits.filter(d=>d.customerId===c.id).length;return `<tr><td><div class="person"><div class="mini-avatar">${esc(c.nama[0]||'N')}</div><div><b>${esc(c.nama)}</b><small>ID ${esc(c.id)}</small></div></div></td><td>${c.jenisPengguna==='UMKM'?'UMKM':'Masyarakat'}</td><td>${c.whatsapp?`<a class="wa-link" href="${whatsAppLink(c.whatsapp)}" target="_blank" rel="noopener">◉ ${esc(formatWhatsApp(c.whatsapp))}</a>`:'<span class="wa-empty">Belum diisi</span>'}</td><td>${n} transaksi</td><td><b>${money(c.saldo)}</b></td><td><button class="btn small" onclick="openCustomer('${c.id}')">Edit</button> <button class="btn small danger" onclick="deleteCustomer('${c.id}')">Hapus</button></td></tr>`}).join('')||'<tr><td colspan="6"><div class="empty">Nasabah tidak ditemukan.</div></td></tr>'}</tbody></table></div></div>`;
+}
+function depositRows(list){return list.map(d=>`<tr><td><b>${esc(d.id)}</b><small style="display:block;color:#89968e">${date(d.tanggal)}</small></td><td>${esc(customer(d.customerId)?.nama||'Nasabah dihapus')}</td><td>${categoryTag(d.jenisSampahNama||type(d.jenisSampahId)?.nama||'-')}</td><td>${kg(d.beratEstimasi)}</td><td>${d.beratAktual==null?'-':kg(d.beratAktual)}</td><td>${money(d.totalNilai)}</td><td>${statusTag(d.status)}</td><td>${d.status==='menunggu'?`<button class="btn small primary" onclick="verifyDeposit('${d.id}')">Verifikasi</button>`:d.status==='diverifikasi'?`<button class="btn small primary" onclick="completeDeposit('${d.id}')">Selesaikan</button>`:`<button class="btn small" onclick="detailDeposit('${d.id}')">Detail</button>`}${['menunggu','diverifikasi'].includes(d.status)?` <button class="btn small danger" onclick="cancelDeposit('${d.id}')">Batal</button>`:''}</td></tr>`).join('')}
+function renderDeposits(){
+ let list=db.deposits.filter(d=>['menunggu','diverifikasi'].includes(d.status)).filter(d=>`${d.id} ${customer(d.customerId)?.nama||''} ${d.jenisSampahNama||''}`.toLowerCase().includes(query.toLowerCase()));
+ document.getElementById('view').innerHTML=pageHead('Setoran Sampah','Tinjau pengajuan, lakukan penimbangan, dan selesaikan setoran.','<button class="btn primary" onclick="openDeposit()">＋ Ajukan Setoran</button>')+toolbar('Cari ID atau nama nasabah...')+
+ `<div class="panel"><div class="panel-head"><h3>Antrean Setoran</h3><span>${list.length} transaksi aktif</span></div><div class="table-wrap"><table><thead><tr><th>ID / Tanggal</th><th>Nasabah</th><th>Kategori</th><th>Estimasi</th><th>Aktual</th><th>Nilai</th><th>Status</th><th>Aksi</th></tr></thead><tbody>${depositRows(list)||'<tr><td colspan="8"><div class="empty"><b>Tidak ada setoran aktif</b>Semua pengajuan sudah diproses.</div></td></tr>'}</tbody></table></div></div><p class="muted" style="font-size:11px;margin-top:12px">Nilai setoran dihitung setelah berat aktual dan harga saat verifikasi ditetapkan. Saldo bertambah setelah setoran diselesaikan.</p>`;
+}
+function renderHistory(){
+ let status=document.getElementById('statusFilter')?.value||'semua';
+ let list=[...db.deposits].filter(d=>`${d.id} ${customer(d.customerId)?.nama||''} ${d.jenisSampahNama||''}`.toLowerCase().includes(query.toLowerCase())).filter(d=>status==='semua'||d.status===status).sort((a,b)=>b.tanggal.localeCompare(a.tanggal));
+ document.getElementById('view').innerHTML=pageHead('Riwayat Transaksi','Seluruh aktivitas setoran dan status pemrosesannya.')+toolbar('Cari transaksi...',`<select class="field-select" id="statusFilter" onchange="renderHistory()"><option value="semua" ${status==='semua'?'selected':''}>Semua status</option><option value="menunggu" ${status==='menunggu'?'selected':''}>Menunggu</option><option value="diverifikasi" ${status==='diverifikasi'?'selected':''}>Diverifikasi</option><option value="selesai" ${status==='selesai'?'selected':''}>Selesai</option><option value="dibatalkan" ${status==='dibatalkan'?'selected':''}>Dibatalkan</option></select>`)+
+ `<div class="panel"><div class="table-wrap"><table><thead><tr><th>ID / Tanggal</th><th>Nasabah</th><th>Kategori</th><th>Estimasi</th><th>Aktual</th><th>Nilai</th><th>Status</th><th>Aksi</th></tr></thead><tbody>${list.map(d=>`<tr><td><b>${esc(d.id)}</b><small style="display:block;color:#89968e">${date(d.tanggal)}</small></td><td>${esc(customer(d.customerId)?.nama||'Nasabah dihapus')}</td><td>${categoryTag(d.jenisSampahNama||type(d.jenisSampahId)?.nama||'-')}</td><td>${kg(d.beratEstimasi)}</td><td>${d.beratAktual==null?'-':kg(d.beratAktual)}</td><td>${money(d.totalNilai)}</td><td>${statusTag(d.status)}</td><td><button class="btn small" onclick="detailDeposit('${d.id}')">Detail</button></td></tr>`).join('')||'<tr><td colspan="8"><div class="empty">Belum ada transaksi yang cocok.</div></td></tr>'}</tbody></table></div></div>`;
+}
+function openModal(title,body){document.getElementById('modalTitle').textContent=title;document.getElementById('modalBody').innerHTML=body;document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+function openType(id=''){
+ let t=id?type(id):null;
+ openModal(t?'Edit Kategori':'Tambah Kategori',`<form id="typeForm" onsubmit="saveType(event,'${id}')"><div class="form-group"><label>Nama kategori *</label><input name="nama" required maxlength="40" value="${esc(t?.nama||'')}"></div><div class="form-grid"><div class="form-group"><label>Harga per kilogram (Rp) *</label><input name="harga" type="number" min="0" step="1" required value="${t?.hargaPerKg??''}"></div><div class="form-group"><label>Satuan</label><input name="satuan" value="${esc(t?.satuan||'kg')}" required></div></div><div class="form-group"><label>Deskripsi</label><textarea name="deskripsi">${esc(t?.deskripsi||'')}</textarea></div><div class="form-grid"><div class="form-group"><label>Ikon sederhana</label><input name="icon" maxlength="4" value="${esc(t?.icon||'♻')}"></div><div class="form-group"><label>Status</label><select name="aktif"><option value="true" ${t?.aktif!==false?'selected':''}>Aktif</option><option value="false" ${t?.aktif===false?'selected':''}>Nonaktif</option></select></div></div><div class="modal-actions"><button type="button" class="btn" onclick="closeModal()">Batal</button><button class="btn primary">Simpan</button></div></form>`);
+}
+function saveType(e,id){e.preventDefault();let f=new FormData(e.target),price=Number(f.get('harga')),name=f.get('nama').trim();if(!name)return toast('Nama kategori wajib diisi.');if(!Number.isFinite(price)||price<0)return toast('Harga tidak boleh negatif.');if(db.types.some(t=>t.nama.toLowerCase()===name.toLowerCase()&&t.id!==id))return toast('Nama kategori sudah digunakan.');let snapshot=structuredClone(db),obj={id:id||'w'+Date.now(),nama:name,hargaPerKg:price,satuan:f.get('satuan').trim(),deskripsi:f.get('deskripsi').trim(),icon:f.get('icon')||'♻',aktif:f.get('aktif')==='true'};if(id)Object.assign(type(id),obj);else db.types.push(obj);if(!persistMutation(snapshot))return;closeModal();render();toast('Kategori berhasil disimpan.')}
+function deleteType(id){if(db.deposits.some(d=>d.jenisSampahId===id))return toast('Kategori sudah digunakan transaksi, ubah menjadi nonaktif.');if(confirm('Hapus kategori ini?')){let snapshot=structuredClone(db);db.types=db.types.filter(t=>t.id!==id);if(!persistMutation(snapshot))return;render();toast('Kategori dihapus.')}}
+function openCustomer(id=''){let c=id?customer(id):null;openModal(c?'Edit Nasabah':'Tambah Nasabah',`<form onsubmit="saveCustomer(event,'${id}')"><div class="form-group"><label>Nama nasabah *</label><input name="nama" required maxlength="70" value="${esc(c?.nama||'')}"></div><div class="form-group"><label>Jenis pengguna *</label><select name="jenis"><option value="masyarakat" ${c?.jenisPengguna!=='UMKM'?'selected':''}>Masyarakat</option><option value="UMKM" ${c?.jenisPengguna==='UMKM'?'selected':''}>UMKM</option></select></div><div class="form-group"><label>Nomor WhatsApp</label><input name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="Contoh: 081234567890" value="${esc(c?.whatsapp||'')}"><small class="muted">Nomor dapat diubah kapan saja melalui tombol Edit.</small></div><div class="notice">Saldo dikelola otomatis dari setoran yang berstatus selesai.</div><div class="modal-actions"><button type="button" class="btn" onclick="closeModal()">Batal</button><button class="btn primary">Simpan</button></div></form>`)}
+function saveCustomer(e,id){e.preventDefault();let f=new FormData(e.target),name=f.get('nama').trim(),wa=f.get('whatsapp').trim();if(!name)return toast('Nama wajib diisi.');if(!validWhatsApp(wa))return toast('Nomor WhatsApp harus terdiri dari 9–15 digit.');let snapshot=structuredClone(db);if(id){let c=customer(id);c.nama=name;c.jenisPengguna=f.get('jenis');c.whatsapp=normalizeWhatsApp(wa)}else db.customers.push({id:'c'+Date.now(),nama:name,jenisPengguna:f.get('jenis'),whatsapp:normalizeWhatsApp(wa),saldo:0});if(!persistMutation(snapshot))return;closeModal();render();toast('Data nasabah dan nomor WhatsApp disimpan.')}
+function deleteCustomer(id){if(db.deposits.some(d=>d.customerId===id))return toast('Nasabah memiliki riwayat transaksi dan tidak dapat dihapus.');if(confirm('Hapus nasabah ini?')){let snapshot=structuredClone(db);db.customers=db.customers.filter(c=>c.id!==id);if(!persistMutation(snapshot))return;render();toast('Nasabah dihapus.')}}
+function openDeposit(){if(!db.customers.length||!db.types.some(t=>t.aktif))return toast('Tambahkan nasabah dan kategori aktif terlebih dahulu.');let first=db.types.find(t=>t.aktif)?.id;openModal('Ajukan Setoran Sampah',`<form id="depositForm" onsubmit="saveDeposit(event)"><div class="notice">Pilih kategori sampah di bawah. Berat yang diisi adalah perkiraan; pengelola akan mencatat berat aktual saat penimbangan.</div><div class="form-group"><label>Nasabah *</label><select name="customer" required>${db.customers.map(c=>`<option value="${c.id}">${esc(c.nama)} · ${c.jenisPengguna}</option>`).join('')}</select></div><div class="form-group"><label>Pilih kategori sampah *</label>${categoryPickerMarkup(first)}</div><div class="form-grid"><div class="form-group"><label>Estimasi berat (kg) *</label><input name="weight" type="number" min="0.01" step="0.01" required placeholder="Contoh: 3.5"></div><div class="form-group"><label>Tanggal setoran *</label><input name="date" type="date" value="${daysAgo(0)}" required></div></div><div class="form-group"><label>Catatan</label><textarea name="note" maxlength="250" placeholder="Catatan tambahan (opsional)"></textarea></div><div class="form-group"><label>Foto atau dokumen pendukung</label><label class="upload-zone" for="depositAttachment"><span class="upload-icon">⇧</span><b>Unggah gambar atau file</b><small>Klik untuk memilih · Maksimal 3 file · Total 1,25 MB</small><input id="depositAttachment" name="attachment" type="file" multiple accept="image/jpeg,image/png,image/webp,image/gif,.pdf,.doc,.docx,.xls,.xlsx,.txt" onchange="previewDepositFiles(this)"></label><div id="attachmentPreview" class="upload-preview"></div></div><div class="modal-actions"><button type="button" class="btn" onclick="closeModal()">Batal</button><button class="btn primary">Kirim Pengajuan</button></div></form>`)}
+function readFileAsDataURL(file){return new Promise((resolve,reject)=>{let reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error('Gagal membaca file.'));reader.readAsDataURL(file)})}
+let depositSaving=false;
+async function saveDeposit(e){
+ e.preventDefault();if(depositSaving)return;depositSaving=true;
+ let submit=e.submitter||e.target.querySelector('.modal-actions .btn.primary');if(submit)submit.disabled=true;
+ try{
+  let f=new FormData(e.target),w=Number(f.get('weight')),t=type(f.get('type')),input=e.target.elements.attachment,files=Array.from(input?.files||[]);
+  if(!Number.isFinite(w)||w<=0)return toast('Estimasi berat harus lebih dari 0 kg.');
+  if(!t||!t.aktif)return toast('Pilih kategori sampah yang masih aktif.');
+  if(files.length>3)return toast('Maksimal 3 lampiran per pengajuan.');
+  let totalSize=files.reduce((n,file)=>n+file.size,0);if(totalSize>1.25*1024*1024)return toast('Total ukuran lampiran maksimal 1,25 MB.');
+  let attachments=[];
+  for(let file of files){
+   let ext=(file.name.split('.').pop()||'').toLowerCase(),allowed=['pdf','doc','docx','xls','xlsx','txt'],isImage=['image/jpeg','image/png','image/webp','image/gif'].includes(file.type);
+   if(!(isImage||allowed.includes(ext)))return toast('Format file belum didukung. Gunakan JPG, PNG, WEBP, GIF, PDF, DOC, XLS, atau TXT.');
+   try{attachments.push({name:file.name,type:file.type||'application/octet-stream',size:file.size,dataUrl:await readFileAsDataURL(file)})}catch(err){console.error(err);return toast('File tidak dapat dibaca.');}
+  }
+  let snapshot=structuredClone(db),item={id:'S-'+db.nextId,customerId:f.get('customer'),jenisSampahId:t.id,jenisSampahNama:t.nama,beratEstimasi:w,beratAktual:null,hargaPerKg:t.hargaPerKg,totalNilai:0,tanggal:f.get('date'),status:'menunggu',catatan:f.get('note').trim(),saldoCredited:false,attachments,attachment:attachments[0]||null};
+  db.deposits.push(item);db.nextId++;
+  if(!persistMutation(snapshot))return;
+  closeModal();render();toast('Pengajuan setoran dan lampiran berhasil disimpan.');
+ }catch(err){console.error(err);toast('Pengajuan belum tersimpan. Periksa data dan lampiran, lalu coba lagi.');}
+ finally{depositSaving=false;if(submit&&submit.isConnected)submit.disabled=false;}
+}
+function verifyDeposit(id){let d=db.deposits.find(x=>x.id===id);if(!d)return;let t=type(d.jenisSampahId);openModal('Verifikasi & Penimbangan',`<div class="notice">Harga yang berlaku saat verifikasi akan disimpan sebagai snapshot transaksi.</div><div class="summary-line"><span>Nasabah</span><b>${esc(customer(d.customerId)?.nama||'-')}</b></div><div class="summary-line"><span>Jenis sampah</span><b>${esc(d.jenisSampahNama||t?.nama||'-')}</b></div><div class="summary-line"><span>Estimasi berat</span><b>${kg(d.beratEstimasi)}</b></div><h4 style="font-size:12px;margin:15px 0 5px">Lampiran dari Nasabah</h4>${attachmentMarkup(d)}<form onsubmit="saveVerification(event,'${id}')"><div class="form-grid" style="margin-top:14px"><div class="form-group"><label>Berat aktual (kg) *</label><input name="actual" type="number" min="0" step="0.01" required value="${d.beratAktual??d.beratEstimasi}"></div><div class="form-group"><label>Harga per kg (Rp) *</label><input name="price" type="number" min="0" step="1" required value="${t?.hargaPerKg??d.hargaPerKg}"></div></div><div class="form-group"><label>Catatan pengelola</label><textarea name="note">${esc(d.catatan||'')}</textarea></div><div class="modal-actions"><button type="button" class="btn" onclick="closeModal()">Batal</button><button class="btn primary">Simpan Verifikasi</button></div></form>`)}
+function saveVerification(e,id){e.preventDefault();let f=new FormData(e.target),actual=Number(f.get('actual')),price=Number(f.get('price'));if(!Number.isFinite(actual)||actual<0||!Number.isFinite(price)||price<0)return toast('Berat dan harga tidak boleh negatif.');let d=db.deposits.find(x=>x.id===id);if(!d||d.status!=='menunggu')return toast('Status transaksi sudah berubah.');let snapshot=structuredClone(db);d.beratAktual=actual;d.hargaPerKg=price;d.totalNilai=Math.round(actual*price);d.catatan=f.get('note').trim();d.status='diverifikasi';if(!persistMutation(snapshot))return;closeModal();render();toast('Setoran berhasil diverifikasi.')}
+function completeDeposit(id){let d=db.deposits.find(x=>x.id===id);if(!d||d.status!=='diverifikasi')return;if(!confirm(`Selesaikan ${id} senilai ${money(d.totalNilai)}? Saldo nasabah akan bertambah satu kali.`))return;let snapshot=structuredClone(db);if(!d.saldoCredited){let c=customer(d.customerId);if(c)c.saldo=Math.max(0,Number(c.saldo)||0)+d.totalNilai;d.saldoCredited=true}d.status='selesai';if(!persistMutation(snapshot)){render();return}render();toast('Setoran selesai dan saldo diperbarui.')}
+function cancelDeposit(id){let d=db.deposits.find(x=>x.id===id);if(!d||!['menunggu','diverifikasi'].includes(d.status))return;if(confirm('Batalkan pengajuan setoran ini?')){let snapshot=structuredClone(db);d.status='dibatalkan';if(!persistMutation(snapshot)){render();return}render();toast('Setoran dibatalkan.')}}
+function detailDeposit(id){let d=db.deposits.find(x=>x.id===id);if(!d)return;openModal('Detail Transaksi',`<div class="summary-line"><span>ID transaksi</span><b>${esc(d.id)}</b></div><div class="summary-line"><span>Nasabah</span><b>${esc(customer(d.customerId)?.nama||'-')}</b></div><div class="summary-line"><span>WhatsApp nasabah</span><b>${customer(d.customerId)?.whatsapp?`<a class="wa-link" href="${whatsAppLink(customer(d.customerId).whatsapp)}" target="_blank" rel="noopener">Chat ${esc(formatWhatsApp(customer(d.customerId).whatsapp))}</a>`:'Belum diisi'}</b></div><div class="summary-line"><span>Kategori</span><b>${esc(d.jenisSampahNama||'-')}</b></div><div class="summary-line"><span>Tanggal</span><b>${date(d.tanggal)}</b></div><div class="summary-line"><span>Berat estimasi</span><b>${kg(d.beratEstimasi)}</b></div><div class="summary-line"><span>Berat aktual</span><b>${d.beratAktual==null?'-':kg(d.beratAktual)}</b></div><div class="summary-line"><span>Harga snapshot</span><b>${money(d.hargaPerKg)}/kg</b></div><div class="summary-line total"><span>Total nilai</span><b>${money(d.totalNilai)}</b></div><div class="summary-line"><span>Status</span>${statusTag(d.status)}</div><div class="summary-line"><span>Saldo sudah dikreditkan</span><b>${d.saldoCredited?'Ya':'Tidak'}</b></div><p class="muted" style="font-size:12px">${esc(d.catatan||'Tidak ada catatan.')}</p><h4 style="font-size:12px;margin:15px 0 5px">Lampiran Setoran</h4>${attachmentMarkup(d)}<div class="modal-actions"><button class="btn primary" onclick="closeModal()">Tutup</button></div>`)}
+// Persist data changes and keep UI derived from the same state.
+render();
+refreshAdminWhatsApp();
+</script>
+</body>
+</html>
